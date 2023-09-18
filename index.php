@@ -1,10 +1,11 @@
 <?php
-session_start();
-$database='localhost';
-$database_email='root';
-$database_password='';
-$database_name='log in';
-$conn=mysqli_connect($database,$database_email,$database_password,$database_name);
-if(mysqli_connect_error()){
-	exit("failed to connect to the database:" -mysqli_connect_error());
+	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+		$uri = 'https://';
+	} else {
+		$uri = 'http://';
+	}
+	$uri .= $_SERVER['HTTP_HOST'];
+	header('Location: '.$uri.'/dashboard/');
+	exit;
 ?>
+Something is wrong with the XAMPP installation :-(
